@@ -1,0 +1,7 @@
+---
+
+- hosts: lemp
+  become: yes
+
+  roles:
+    - roles

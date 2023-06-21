@@ -1,0 +1,54 @@
+---
+# tasks file for phpmyadminSetupByAnsiblePlay
+- name: "Installing nginx, mysql and php"
+  apt:
+    name:
+      - nginx
+      - mysql-server
+      - php-fpm
+      - php-mysql
+    state: present
+
+- name: "Configuring Nginx to Use the PHP Processor"
+  lineinfile:
+    dest: /etc/nginx/sites-enabled/default
+    regexp: '{{ item.regexp }}'
+    line: '{{ item.line }}'
+    backrefs: yes
+  loop:
+    - { regexp: '.*#.*(location .*php.*).*', line: ' \1' }
+    - { regexp: ".*#.*(include snippets.fastcgi-php.conf;.*)", line: '    \1' }
+    - { regexp: ".*#.*(fastcgi_pass unix..var.run.php.php*.*.fpm.sock;.*)", line: '   \1 }' }
+    - { regexp: '.*index index.html index.htm index.nginx-debian.html;.*', line: '  index index.php index.html index.htm index.nginx-debian.html;'}
+    
+- name: "Installing phpmyadmin"
+  apt:
+    name: "phpmyadmin"
+    state: "present"
+
+- name: "Setting phpmyadmin"
+  file:
+    src: "/usr/share/phpmyadmin"
+    dest: "/var/www/html/phpmyadmin"
+    state: link
+
+- name: "Configuring phpmyadmin"
+  lineinfile:
+    dest: /etc/phpmyadmin/config.inc.php
+    regexp: "\\s+//\\s+.cfg.*'AllowNoPassword'.* = TRUE;.*"
+    line: "    $cfg['Servers'][$i]['AllowNoPassword'] = TRUE;"
+    backrefs: yes
+
+- name: "Restarting nginx"
+  service:
+    name: "nginx"
+    state: "restarted"
+
+- name: "Setting user root"
+  shell: mysql <<< "ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY \"\";"
+  args:
+    executable: /bin/bash
+
+
+
+
