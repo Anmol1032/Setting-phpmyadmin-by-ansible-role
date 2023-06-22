@@ -1,2 +1,3 @@
 ---
 # vars file for phpmyadminSetupByAnsiblePlay
+ansible_python_interpreter: auto
