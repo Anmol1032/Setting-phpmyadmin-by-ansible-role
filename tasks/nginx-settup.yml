@@ -1,4 +1,4 @@
-- name: Settup nginx
+- name: Nginx Settup
   template:
     src: site.j2
     dest: /etc/nginx/sites-available/{{ debian_name }}
@@ -12,3 +12,14 @@
     state: link
   tags:
     - nginx_settup
+
+- name: "{{ debian_name  }} settup"
+  file:
+    state: directory
+    dest:  /var/www/{{ debian_name }}
+    mode:  0755
+
+- name: Default index.html fie for {{ debian_name }}
+  template:
+    src: index.html.j2
+    dest: /var/www/{{ debian_name }}/index.html
