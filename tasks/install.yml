@@ -1,0 +1,28 @@
+- name: Installing nginx
+  apt:
+    name: nginx
+    state: present
+  tags:
+    - install
+    - nginx_install
+
+- name: mysql
+  apt:
+    name: mysql-server
+    state: present
+  tags:
+    - install
+    - mysql_install
+
+- name: php
+  apt:
+    name:
+      - php
+      - php-fpm
+      - php-mysql
+    state: present
+  tags:
+    - install
+    - php_install
+
+

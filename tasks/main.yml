@@ -1,0 +1,9 @@
+---
+# tasks file for Setting-phpmyadmin-by-ansible-role
+- include: install.yml
+  tags:
+    - install
+
+- include: nginx-settup.yml
+  tags:
+    - nginx
