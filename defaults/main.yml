@@ -3,6 +3,9 @@
 debian_name: html
 server_name: _
 root: /var/www
+nginx_port: 80
+
+disable_default: true
 
 phpmyadmin_location: phpmyadmin
 

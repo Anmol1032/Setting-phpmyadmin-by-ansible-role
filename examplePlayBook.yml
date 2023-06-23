@@ -1,8 +1,9 @@
 - hosts: localhost
   roles: 
     - role: ../Setting-phpmyadmin-by-ansible-role
-      debian_name: abc
-      server_name: abcd
+      nginx_port: 8080
+      debian_name: abcde
+      server_name: abc
       phpmyadmin_location: abc_php
       root: /var
 

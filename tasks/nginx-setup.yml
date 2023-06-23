@@ -5,6 +5,12 @@
   tags:
     - nginx_setup
 
+- name: Disabling default
+  file:
+    name: /etc/nginx/sites-enabled/default
+    state: absent
+  when: nginx_port == 80 and disable_default | bool
+
 - name: Enabling {{ debian_name }}
   file:
     src: /etc/nginx/sites-available/{{ debian_name }}
