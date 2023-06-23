@@ -9,3 +9,5 @@ disable_default: true
 
 phpmyadmin_location: phpmyadmin
 
+user_name: phpmyadmin
+password: 12345678

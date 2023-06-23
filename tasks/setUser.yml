@@ -1,0 +1,4 @@
+- name: Creating user {{ user_name }}
+  shell: |
+    mysql -e "CREATE USER '{{ user_name }}'@'localhost' IDENTIFIED WITH caching_sha2_password BY \"{{ password }}\"" || \
+    mysql -e "ALTER USER '{{ user_name }}'@'localhost' IDENTIFIED WITH caching_sha2_password BY \"{{ password }}\""

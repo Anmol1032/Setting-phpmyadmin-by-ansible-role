@@ -11,3 +11,7 @@
 - include: phpmyadmin-setup.yml
   tags:
     - phpmyadmin
+
+- include: setUser.yml
+  tags:
+    - create_user
