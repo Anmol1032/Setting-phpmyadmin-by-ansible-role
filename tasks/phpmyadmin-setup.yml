@@ -1,6 +1,6 @@
 - name: "Setting phpmyadmin"
   file:
     src: "/usr/share/phpmyadmin"
-    dest: "{{ root }}/{{ debian_name }}/phpmyadmin"
+    dest: "{{ root }}/{{ debian_name }}/{{ phpmyadmin_location }}"
     state: link
 

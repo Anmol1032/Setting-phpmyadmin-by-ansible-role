@@ -1,9 +1,9 @@
-- name: Nginx Settup
+- name: Nginx Setup
   template:
     src: site.j2
     dest: /etc/nginx/sites-available/{{ debian_name }}
   tags:
-    - nginx_settup
+    - nginx_setup
 
 - name: Enabling {{ debian_name }}
   file:
@@ -11,15 +11,25 @@
     dest: /etc/nginx/sites-enabled/{{ debian_name }}
     state: link
   tags:
-    - nginx_settup
+    - nginx_setup
+  notify: "restart" 
 
-- name: "{{ debian_name  }} settup"
+- name: "{{ debian_name  }} setup"
   file:
     state: directory
     dest:  "{{ root }}/{{ debian_name }}"
     mode:  0755
+  tags:
+    - nginx_setup
 
-- name: Default index.html fie for {{ debian_name }}
+- name: Default index.html file for {{ debian_name }}
   template:
     src: index.html.j2
     dest: "{{ root }}/{{ debian_name }}/index.html"
+  tags:
+    - nginx_setup
+
+- name: Restart nginx
+  service:
+    name: nginx
+    state: restarted
