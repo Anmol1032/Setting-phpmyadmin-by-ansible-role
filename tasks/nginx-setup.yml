@@ -4,12 +4,14 @@
     dest: /etc/nginx/sites-available/{{ debian_name }}
   tags:
     - nginx_setup
+  notify: "Restart nginx"
 
 - name: Disabling default
   file:
     name: /etc/nginx/sites-enabled/default
     state: absent
   when: nginx_port == 80 and disable_default | bool
+  notify: "Restart nginx"
 
 - name: Enabling {{ debian_name }}
   file:

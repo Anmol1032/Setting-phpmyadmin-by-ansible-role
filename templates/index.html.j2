@@ -1,13 +1,32 @@
 <html>
   <head>
     <title>Index file for {{ debian_name }}</title>
+    <style>
+      body {
+        background: black;
+        color: white;
+        text-shadow: cyan 2px 2px 2px, red -2px -2px 2px, white 5px -5px 10px;
+        size: 30px
+      }
+      
+      body:hover {
+        background: black;
+        color: white;
+        text-shadow: cyan 4px 4px 10px, red -4px -4px 10px, white 10px -10px 10px
+      }
+
+      a {
+        background: black;
+        color: cyan;
+        text-shadow: cyan 0px 0px 10px, darkblue 0px 0px 7px, red 2px 2px 3px, red -2px -2px 3px
+      }
+    </style>
   </head>
 
   <body>
     <h1 style:"color: cyan;">Index file for {{ debian_name }}</h1>
-    <p>
-        This file is created by ansible role.<br />
-        <a href="https://github.com/Anmol1032/Setting-phpmyadmin-by-ansible-role/tree/master">Git repo link</a>.<br />
-        <hr />.<hr />
+    <p> This file is created by ansible role.</p><br />
+    <h2><a href="https://github.com/Anmol1032/Setting-phpmyadmin-by-ansible-role/tree/master">Git repo link</a>.</h2><br />
+    <h2><hr /><a href="{{ phpmyadmin_location }}">Phpmyadmin link</a>.</h2><hr />
   </body>
 </html>
