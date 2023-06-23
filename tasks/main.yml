@@ -4,6 +4,10 @@
   tags:
     - install
 
-- include: nginx-settup.yml
+- include: nginx-setup.yml
   tags:
     - nginx
+
+- include: phpmyadmin-setup.yml
+  tags:
+    - phpmyadmin

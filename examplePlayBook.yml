@@ -1,3 +1,8 @@
 - hosts: localhost
   roles: 
-    - { role: ../Setting-phpmyadmin-by-ansible-role }
+    - role: ../Setting-phpmyadmin-by-ansible-role
+      debian_name: abc
+      server_name: abcd
+      phpmyadmin_location: abc_php
+      root: /var
+

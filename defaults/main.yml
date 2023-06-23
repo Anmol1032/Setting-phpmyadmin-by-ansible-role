@@ -2,3 +2,7 @@
 # defaults file for Setting-phpmyadmin-by-ansible-role
 debian_name: html
 server_name: _
+root: /var/www
+
+phpmyadmin_location: phpmyadmin
+

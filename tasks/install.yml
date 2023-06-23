@@ -6,7 +6,7 @@
     - install
     - nginx_install
 
-- name: mysql
+- name: Installing mysql
   apt:
     name: mysql-server
     state: present
@@ -14,7 +14,7 @@
     - install
     - mysql_install
 
-- name: php
+- name: Installing php
   apt:
     name:
       - php
@@ -25,4 +25,10 @@
     - install
     - php_install
 
-
+- name: Installing phpmyadmin
+  apt:
+    name: phpmyadmin
+    state: present
+  tags:
+    - install
+    - phpmyadmin

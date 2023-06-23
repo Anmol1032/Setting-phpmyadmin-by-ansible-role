@@ -1,2 +1,6 @@
 ---
 # handlers file for Setting-phpmyadmin-by-ansible-role
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
