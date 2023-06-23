@@ -28,8 +28,3 @@
     dest: "{{ root }}/{{ debian_name }}/index.html"
   tags:
     - nginx_setup
-
-#- name: Restart nginx
-#  service:
- #   name: nginx
-  #  state: restarted
