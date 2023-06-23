@@ -12,7 +12,7 @@
     state: link
   tags:
     - nginx_setup
-  notify: "restart" 
+  notify: "Restart nginx" 
 
 - name: "{{ debian_name  }} setup"
   file:
@@ -29,7 +29,7 @@
   tags:
     - nginx_setup
 
-- name: Restart nginx
-  service:
-    name: nginx
-    state: restarted
+#- name: Restart nginx
+#  service:
+ #   name: nginx
+  #  state: restarted
