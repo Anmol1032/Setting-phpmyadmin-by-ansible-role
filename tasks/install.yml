@@ -17,9 +17,9 @@
 - name: Installing php
   apt:
     name:
-      - php
-      - php-fpm
-      - php-mysql
+      - php7.4
+      - php7.4-fpm
+      - php7.4-mysql
     state: present
   tags:
     - install
