@@ -33,7 +33,7 @@ Example Playbook
 ---
 - hosts: localhost
     roles:
-    - role: ../Setting-phpmyadmin-by-ansible-role
+    - role: Setting-phpmyadmin-by-ansible-role
       nginx_port: 80
       debian_name: Anmol1032
       server_name: Anmol
