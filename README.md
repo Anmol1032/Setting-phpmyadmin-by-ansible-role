@@ -11,7 +11,7 @@ Role Variables
 
 
 | variable name | work | default |
-| ------------- | --- | --- |
+| :------------- | :--- | :---: |
 | debian_name   | Name of debian | html |
 | server_name   | Name of server | _ |
 | root          | Root directory | /var/www |
